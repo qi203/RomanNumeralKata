@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/qi203/TDD/Example1/Ex1/src/money.h
+
+/home/qi203/TDD/Example1/Ex1/tests/check_money.c
+stdlib.h
+-
+check.h
+-
+../src/money.h
+/home/qi203/TDD/Example1/Ex1/src/money.h
+
+/usr/local/include/check.h
+stddef.h
+-
+string.h
+-
+check_stdint.h
+-
+sys/types.h
+-
+
+/usr/local/include/check_stdint.h
+stdint.h
+-
+
