@@ -23,9 +23,10 @@ AC_PROG_LIBTOOL
 #PKG_CHECK_MODULES([CHECK], [check >= 0.9.6])
 AM_PATH_CHECK([0.9.0],[],[AC_MSG_ERROR([check is missing])])
 AM_PROG_CC_C_O
+AC_SEARCH_LIBS([pthread_create], [pthread])
 AC_CHECK_LIB(m, floor)
 AC_CHECK_LIB(rt, setitimer)
-AC_CHECK_LIB(pthread, pthread_create)
+AC_CHECK_LIB(pthread, pthread_create, check, subunit, common, curl, dl, m, rt, z)
 LT_INIT
 AC_CONFIG_MACRO_DIR([m4])
 

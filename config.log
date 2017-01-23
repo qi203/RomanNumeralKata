@@ -404,36 +404,124 @@ conftest.c:63:3: warning: ignoring return value of 'system', declared with attri
    ^
 configure:12805: $? = 0
 configure:12816: result: yes
-configure:12879: checking for floor in -lm
-configure:12904: gcc -o conftest -g -O2   conftest.c -lm   >&5
+configure:12879: checking for library containing pthread_create
+configure:12910: gcc -o conftest -g -O2   conftest.c  >&5
+/tmp/cc47jblT.o: In function `main':
+/home/qi203/TDD/Example1/Ex1/conftest.c:34: undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+configure:12910: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "Money"
+| #define PACKAGE_TARNAME "money"
+| #define PACKAGE_VERSION "0.3"
+| #define PACKAGE_STRING "Money 0.3"
+| #define PACKAGE_BUGREPORT "check-devel AT lists.sourceforge.net"
+| #define PACKAGE_URL ""
+| #define PACKAGE "money"
+| #define VERSION "0.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| /* end confdefs.h.  */
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char pthread_create ();
+| int
+| main ()
+| {
+| return pthread_create ();
+|   ;
+|   return 0;
+| }
+configure:12910: gcc -o conftest -g -O2   conftest.c -lpthread   >&5
+configure:12910: $? = 0
+configure:12927: result: -lpthread
+configure:12935: checking for floor in -lm
+configure:12960: gcc -o conftest -g -O2   conftest.c -lm  -lpthread  >&5
 conftest.c:30:6: warning: conflicting types for built-in function 'floor'
  char floor ();
       ^
-configure:12904: $? = 0
-configure:12913: result: yes
-configure:12924: checking for setitimer in -lrt
-configure:12949: gcc -o conftest -g -O2   conftest.c -lrt  -lm  >&5
-configure:12949: $? = 0
-configure:12958: result: yes
-configure:12969: checking for pthread_create in -lpthread
-configure:12994: gcc -o conftest -g -O2   conftest.c -lpthread  -lrt -lm  >&5
-configure:12994: $? = 0
-configure:13003: result: yes
-configure:13018: checking for ANSI C header files
-configure:13122: result: yes
-configure:13132: checking for stdlib.h
-configure:13132: result: yes
-configure:13148: checking for stdlib.h
-configure:13148: result: yes
-configure:13158: checking for GNU libc compatible malloc
-configure:13182: gcc -o conftest -g -O2   conftest.c -lpthread -lrt -lm  >&5
-configure:13182: $? = 0
-configure:13182: ./conftest
-configure:13182: $? = 0
-configure:13192: result: yes
-configure:13330: checking that generated files are newer than configure
-configure:13336: result: done
-configure:13359: creating ./config.status
+configure:12960: $? = 0
+configure:12969: result: yes
+configure:12980: checking for setitimer in -lrt
+configure:13005: gcc -o conftest -g -O2   conftest.c -lrt  -lm -lpthread  >&5
+configure:13005: $? = 0
+configure:13014: result: yes
+configure:13025: checking for pthread_create in -lpthread
+configure:13050: gcc -o conftest -g -O2   conftest.c -lpthread common -lrt -lm -lpthread  >&5
+gcc: error: common: No such file or directory
+configure:13050: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "Money"
+| #define PACKAGE_TARNAME "money"
+| #define PACKAGE_VERSION "0.3"
+| #define PACKAGE_STRING "Money 0.3"
+| #define PACKAGE_BUGREPORT "check-devel AT lists.sourceforge.net"
+| #define PACKAGE_URL ""
+| #define PACKAGE "money"
+| #define VERSION "0.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_LIBM 1
+| #define HAVE_LIBRT 1
+| /* end confdefs.h.  */
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char pthread_create ();
+| int
+| main ()
+| {
+| return pthread_create ();
+|   ;
+|   return 0;
+| }
+configure:13059: result: no
+configure:13071: checking for ANSI C header files
+configure:13175: result: yes
+configure:13185: checking for stdlib.h
+configure:13185: result: yes
+configure:13201: checking for stdlib.h
+configure:13201: result: yes
+configure:13211: checking for GNU libc compatible malloc
+configure:13235: gcc -o conftest -g -O2   conftest.c -lrt -lm -lpthread  >&5
+configure:13235: $? = 0
+configure:13235: ./conftest
+configure:13235: $? = 0
+configure:13245: result: yes
+configure:13383: checking that generated files are newer than configure
+configure:13389: result: done
+configure:13412: creating ./config.status
 
 ## ---------------------- ##
 ## Running config.status. ##
@@ -450,12 +538,13 @@ generated by GNU Autoconf 2.69.  Invocation command line was
 
 on qi203-HP-ENVY-TS-15-Notebook-PC
 
-config.status:1094: creating Makefile
-config.status:1094: creating src/Makefile
-config.status:1094: creating tests/Makefile
-config.status:1094: creating config.h
-config.status:1323: executing depfiles commands
-config.status:1323: executing libtool commands
+config.status:1093: creating Makefile
+config.status:1093: creating src/Makefile
+config.status:1093: creating tests/Makefile
+config.status:1093: creating config.h
+config.status:1274: config.h is unchanged
+config.status:1322: executing depfiles commands
+config.status:1322: executing libtool commands
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -497,7 +586,7 @@ ac_cv_header_sys_types_h=yes
 ac_cv_header_unistd_h=yes
 ac_cv_host=x86_64-unknown-linux-gnu
 ac_cv_lib_m_floor=yes
-ac_cv_lib_pthread_pthread_create=yes
+ac_cv_lib_pthread_pthread_create=no
 ac_cv_lib_rt_setitimer=yes
 ac_cv_objext=o
 ac_cv_path_EGREP='/bin/grep -E'
@@ -518,6 +607,7 @@ ac_cv_prog_ac_ct_STRIP=strip
 ac_cv_prog_cc_c89=
 ac_cv_prog_cc_g=yes
 ac_cv_prog_make_make_set=yes
+ac_cv_search_pthread_create=-lpthread
 am_cv_CC_dependencies_compiler_type=gcc3
 am_cv_ar_interface=ar
 am_cv_make_support_nested_variables=yes
@@ -596,7 +686,7 @@ INSTALL_STRIP_PROGRAM='$(install_sh) -c -s'
 LD='/usr/bin/ld -m elf_x86_64'
 LDFLAGS=''
 LIBOBJS=''
-LIBS='-lpthread -lrt -lm '
+LIBS='-lrt -lm -lpthread '
 LIBTOOL='$(SHELL) $(top_builddir)/libtool'
 LIPO=''
 LN_S='ln -s'
@@ -702,7 +792,6 @@ target_alias=''
 #define LT_OBJDIR ".libs/"
 #define HAVE_LIBM 1
 #define HAVE_LIBRT 1
-#define HAVE_LIBPTHREAD 1
 #define STDC_HEADERS 1
 #define HAVE_STDLIB_H 1
 #define HAVE_STDLIB_H 1
