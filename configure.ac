@@ -2,11 +2,11 @@
 
 # Prelude.
 AC_PREREQ([2.59])
-AC_INIT([Money], [0.3], [check-devel AT lists.sourceforge.net])
+AC_INIT([Calculator], [0.3], [check-devel AT lists.sourceforge.net])
 AM_PROG_AR
 
 # unique source file --- primitive safety check 
-AC_CONFIG_SRCDIR([src/money.c])
+AC_CONFIG_SRCDIR([src/calc.c])
 
 # place to put some extra build scripts installed
 # AC_CONFIG_AUX_DIR([build-aux])

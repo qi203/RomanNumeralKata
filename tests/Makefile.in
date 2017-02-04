@@ -87,8 +87,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-TESTS = check_money$(EXEEXT)
-check_PROGRAMS = check_money$(EXEEXT)
+TESTS = check_calc$(EXEEXT)
+check_PROGRAMS = check_calc$(EXEEXT)
 subdir = tests
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
@@ -102,15 +102,15 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-am_check_money_OBJECTS = check_money-check_money.$(OBJEXT)
-check_money_OBJECTS = $(am_check_money_OBJECTS)
-check_money_DEPENDENCIES = $(top_builddir)/src/libmoney.la
+am_check_calc_OBJECTS = check_calc-check_calc.$(OBJEXT)
+check_calc_OBJECTS = $(am_check_calc_OBJECTS)
+check_calc_DEPENDENCIES = $(top_builddir)/src/libcalc.la
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-check_money_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(check_money_CFLAGS) \
+check_calc_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(check_calc_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -146,8 +146,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(check_money_SOURCES)
-DIST_SOURCES = $(check_money_SOURCES)
+SOURCES = $(check_calc_SOURCES)
+DIST_SOURCES = $(check_calc_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -496,9 +496,9 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-check_money_SOURCES = check_money.c $(top_builddir)/src/money.h
-check_money_CFLAGS = @CHECK_CFLAGS@
-check_money_LDADD = $(top_builddir)/src/libmoney.la @CHECK_LIBS@
+check_calc_SOURCES = check_calc.c $(top_builddir)/src/calc.h
+check_calc_CFLAGS = @CHECK_CFLAGS@
+check_calc_LDADD = $(top_builddir)/src/libcalc.la @CHECK_LIBS@
 all: all-am
 
 .SUFFIXES:
@@ -542,9 +542,9 @@ clean-checkPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-check_money$(EXEEXT): $(check_money_OBJECTS) $(check_money_DEPENDENCIES) $(EXTRA_check_money_DEPENDENCIES) 
-	@rm -f check_money$(EXEEXT)
-	$(AM_V_CCLD)$(check_money_LINK) $(check_money_OBJECTS) $(check_money_LDADD) $(LIBS)
+check_calc$(EXEEXT): $(check_calc_OBJECTS) $(check_calc_DEPENDENCIES) $(EXTRA_check_calc_DEPENDENCIES) 
+	@rm -f check_calc$(EXEEXT)
+	$(AM_V_CCLD)$(check_calc_LINK) $(check_calc_OBJECTS) $(check_calc_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -552,7 +552,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/check_money-check_money.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/check_calc-check_calc.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -575,19 +575,19 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
 
-check_money-check_money.o: check_money.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(check_money_CFLAGS) $(CFLAGS) -MT check_money-check_money.o -MD -MP -MF $(DEPDIR)/check_money-check_money.Tpo -c -o check_money-check_money.o `test -f 'check_money.c' || echo '$(srcdir)/'`check_money.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/check_money-check_money.Tpo $(DEPDIR)/check_money-check_money.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='check_money.c' object='check_money-check_money.o' libtool=no @AMDEPBACKSLASH@
+check_calc-check_calc.o: check_calc.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(check_calc_CFLAGS) $(CFLAGS) -MT check_calc-check_calc.o -MD -MP -MF $(DEPDIR)/check_calc-check_calc.Tpo -c -o check_calc-check_calc.o `test -f 'check_calc.c' || echo '$(srcdir)/'`check_calc.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/check_calc-check_calc.Tpo $(DEPDIR)/check_calc-check_calc.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='check_calc.c' object='check_calc-check_calc.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(check_money_CFLAGS) $(CFLAGS) -c -o check_money-check_money.o `test -f 'check_money.c' || echo '$(srcdir)/'`check_money.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(check_calc_CFLAGS) $(CFLAGS) -c -o check_calc-check_calc.o `test -f 'check_calc.c' || echo '$(srcdir)/'`check_calc.c
 
-check_money-check_money.obj: check_money.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(check_money_CFLAGS) $(CFLAGS) -MT check_money-check_money.obj -MD -MP -MF $(DEPDIR)/check_money-check_money.Tpo -c -o check_money-check_money.obj `if test -f 'check_money.c'; then $(CYGPATH_W) 'check_money.c'; else $(CYGPATH_W) '$(srcdir)/check_money.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/check_money-check_money.Tpo $(DEPDIR)/check_money-check_money.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='check_money.c' object='check_money-check_money.obj' libtool=no @AMDEPBACKSLASH@
+check_calc-check_calc.obj: check_calc.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(check_calc_CFLAGS) $(CFLAGS) -MT check_calc-check_calc.obj -MD -MP -MF $(DEPDIR)/check_calc-check_calc.Tpo -c -o check_calc-check_calc.obj `if test -f 'check_calc.c'; then $(CYGPATH_W) 'check_calc.c'; else $(CYGPATH_W) '$(srcdir)/check_calc.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/check_calc-check_calc.Tpo $(DEPDIR)/check_calc-check_calc.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='check_calc.c' object='check_calc-check_calc.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(check_money_CFLAGS) $(CFLAGS) -c -o check_money-check_money.obj `if test -f 'check_money.c'; then $(CYGPATH_W) 'check_money.c'; else $(CYGPATH_W) '$(srcdir)/check_money.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(check_calc_CFLAGS) $(CFLAGS) -c -o check_calc-check_calc.obj `if test -f 'check_calc.c'; then $(CYGPATH_W) 'check_calc.c'; else $(CYGPATH_W) '$(srcdir)/check_calc.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -788,9 +788,9 @@ recheck: all $(check_PROGRAMS)
 	        am__force_recheck=am--force-recheck \
 	        TEST_LOGS="$$log_list"; \
 	exit $$?
-check_money.log: check_money$(EXEEXT)
-	@p='check_money$(EXEEXT)'; \
-	b='check_money'; \
+check_calc.log: check_calc$(EXEEXT)
+	@p='check_calc$(EXEEXT)'; \
+	b='check_calc'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \

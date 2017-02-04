@@ -1,7 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 
-TESTS = check_money
-check_PROGRAMS = check_money
-check_money_SOURCES = check_money.c $(top_builddir)/src/money.h
-check_money_CFLAGS = @CHECK_CFLAGS@
-check_money_LDADD = $(top_builddir)/src/libmoney.la @CHECK_LIBS@
+TESTS = check_calc
+check_PROGRAMS = check_calc
+check_calc_SOURCES = check_calc.c $(top_builddir)/src/calc.h
+check_calc_CFLAGS = @CHECK_CFLAGS@
+check_calc_LDADD = $(top_builddir)/src/libcalc.la @CHECK_LIBS@

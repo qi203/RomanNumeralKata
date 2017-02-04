@@ -69,10 +69,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/money
-pkgincludedir = $(includedir)/money
-pkglibdir = $(libdir)/money
-pkglibexecdir = $(libexecdir)/money
+pkgdatadir = $(datadir)/calculator
+pkgincludedir = $(includedir)/calculator
+pkglibdir = $(libdir)/calculator
+pkglibexecdir = $(libexecdir)/calculator
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -160,9 +160,9 @@ ETAGS = etags
 CTAGS = ctags
 CSCOPE = cscope
 DIST_SUBDIRS = $(SUBDIRS)
-am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in COPYING \
-	INSTALL README ar-lib compile config.guess config.sub depcomp \
-	install-sh ltmain.sh missing
+am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in ar-lib \
+	compile config.guess config.sub depcomp install-sh ltmain.sh \
+	missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -205,13 +205,13 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/qi203/TDD/Example1/Ex1/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/qi203/TDD/Example1/LibCalculator/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/qi203/TDD/Example1/Ex1/missing autoconf
-AUTOHEADER = ${SHELL} /home/qi203/TDD/Example1/Ex1/missing autoheader
-AUTOMAKE = ${SHELL} /home/qi203/TDD/Example1/Ex1/missing automake-1.15
+AUTOCONF = ${SHELL} /home/qi203/TDD/Example1/LibCalculator/missing autoconf
+AUTOHEADER = ${SHELL} /home/qi203/TDD/Example1/LibCalculator/missing autoheader
+AUTOMAKE = ${SHELL} /home/qi203/TDD/Example1/LibCalculator/missing automake-1.15
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -247,7 +247,7 @@ LIPO =
 LN_S = ln -s
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
-MAKEINFO = ${SHELL} /home/qi203/TDD/Example1/Ex1/missing makeinfo
+MAKEINFO = ${SHELL} /home/qi203/TDD/Example1/LibCalculator/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -256,11 +256,11 @@ OBJDUMP = objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
-PACKAGE = money
+PACKAGE = calculator
 PACKAGE_BUGREPORT = check-devel AT lists.sourceforge.net
-PACKAGE_NAME = Money
-PACKAGE_STRING = Money 0.3
-PACKAGE_TARNAME = money
+PACKAGE_NAME = Calculator
+PACKAGE_STRING = Calculator 0.3
+PACKAGE_TARNAME = calculator
 PACKAGE_URL = 
 PACKAGE_VERSION = 0.3
 PATH_SEPARATOR = :
@@ -270,10 +270,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = strip
 VERSION = 0.3
-abs_builddir = /home/qi203/TDD/Example1/Ex1
-abs_srcdir = /home/qi203/TDD/Example1/Ex1
-abs_top_builddir = /home/qi203/TDD/Example1/Ex1
-abs_top_srcdir = /home/qi203/TDD/Example1/Ex1
+abs_builddir = /home/qi203/TDD/Example1/LibCalculator
+abs_srcdir = /home/qi203/TDD/Example1/LibCalculator
+abs_top_builddir = /home/qi203/TDD/Example1/LibCalculator
+abs_top_srcdir = /home/qi203/TDD/Example1/LibCalculator
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -302,7 +302,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/qi203/TDD/Example1/Ex1/install-sh
+install_sh = ${SHELL} /home/qi203/TDD/Example1/LibCalculator/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

@@ -71,10 +71,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/money
-pkgincludedir = $(includedir)/money
-pkglibdir = $(libdir)/money
-pkglibexecdir = $(libexecdir)/money
+pkgdatadir = $(datadir)/calculator
+pkgincludedir = $(includedir)/calculator
+pkglibdir = $(libdir)/calculator
+pkglibexecdir = $(libexecdir)/calculator
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -132,9 +132,9 @@ am__uninstall_files_from_dir = { \
   }
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
-libmoney_la_LIBADD =
-am_libmoney_la_OBJECTS = money.lo
-libmoney_la_OBJECTS = $(am_libmoney_la_OBJECTS)
+libcalc_la_LIBADD =
+am_libcalc_la_OBJECTS = calc.lo
+libcalc_la_OBJECTS = $(am_libcalc_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
@@ -142,7 +142,7 @@ am__v_lt_1 =
 PROGRAMS = $(bin_PROGRAMS)
 am_main_OBJECTS = main.$(OBJEXT)
 main_OBJECTS = $(am_main_OBJECTS)
-main_DEPENDENCIES = libmoney.la
+main_DEPENDENCIES = libcalc.la
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -177,8 +177,8 @@ AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(libmoney_la_SOURCES) $(main_SOURCES)
-DIST_SOURCES = $(libmoney_la_SOURCES) $(main_SOURCES)
+SOURCES = $(libcalc_la_SOURCES) $(main_SOURCES)
+DIST_SOURCES = $(libcalc_la_SOURCES) $(main_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -205,13 +205,13 @@ ETAGS = etags
 CTAGS = ctags
 am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/qi203/TDD/Example1/Ex1/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/qi203/TDD/Example1/LibCalculator/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/qi203/TDD/Example1/Ex1/missing autoconf
-AUTOHEADER = ${SHELL} /home/qi203/TDD/Example1/Ex1/missing autoheader
-AUTOMAKE = ${SHELL} /home/qi203/TDD/Example1/Ex1/missing automake-1.15
+AUTOCONF = ${SHELL} /home/qi203/TDD/Example1/LibCalculator/missing autoconf
+AUTOHEADER = ${SHELL} /home/qi203/TDD/Example1/LibCalculator/missing autoheader
+AUTOMAKE = ${SHELL} /home/qi203/TDD/Example1/LibCalculator/missing automake-1.15
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -247,7 +247,7 @@ LIPO =
 LN_S = ln -s
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
-MAKEINFO = ${SHELL} /home/qi203/TDD/Example1/Ex1/missing makeinfo
+MAKEINFO = ${SHELL} /home/qi203/TDD/Example1/LibCalculator/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -256,11 +256,11 @@ OBJDUMP = objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
-PACKAGE = money
+PACKAGE = calculator
 PACKAGE_BUGREPORT = check-devel AT lists.sourceforge.net
-PACKAGE_NAME = Money
-PACKAGE_STRING = Money 0.3
-PACKAGE_TARNAME = money
+PACKAGE_NAME = Calculator
+PACKAGE_STRING = Calculator 0.3
+PACKAGE_TARNAME = calculator
 PACKAGE_URL = 
 PACKAGE_VERSION = 0.3
 PATH_SEPARATOR = :
@@ -270,10 +270,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = strip
 VERSION = 0.3
-abs_builddir = /home/qi203/TDD/Example1/Ex1/src
-abs_srcdir = /home/qi203/TDD/Example1/Ex1/src
-abs_top_builddir = /home/qi203/TDD/Example1/Ex1
-abs_top_srcdir = /home/qi203/TDD/Example1/Ex1
+abs_builddir = /home/qi203/TDD/Example1/LibCalculator/src
+abs_srcdir = /home/qi203/TDD/Example1/LibCalculator/src
+abs_top_builddir = /home/qi203/TDD/Example1/LibCalculator
+abs_top_srcdir = /home/qi203/TDD/Example1/LibCalculator
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -302,7 +302,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/qi203/TDD/Example1/Ex1/install-sh
+install_sh = ${SHELL} /home/qi203/TDD/Example1/LibCalculator/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -322,10 +322,10 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-lib_LTLIBRARIES = libmoney.la
-libmoney_la_SOURCES = money.c money.h
+lib_LTLIBRARIES = libcalc.la
+libcalc_la_SOURCES = calc.c calc.h
 main_SOURCES = main.c
-main_LDADD = libmoney.la
+main_LDADD = libcalc.la
 all: all-am
 
 .SUFFIXES:
@@ -395,8 +395,8 @@ clean-libLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
-libmoney.la: $(libmoney_la_OBJECTS) $(libmoney_la_DEPENDENCIES) $(EXTRA_libmoney_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(LINK) -rpath $(libdir) $(libmoney_la_OBJECTS) $(libmoney_la_LIBADD) $(LIBS)
+libcalc.la: $(libcalc_la_OBJECTS) $(libcalc_la_DEPENDENCIES) $(EXTRA_libcalc_la_DEPENDENCIES) 
+	$(AM_V_CCLD)$(LINK) -rpath $(libdir) $(libcalc_la_OBJECTS) $(libcalc_la_LIBADD) $(LIBS)
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
 	@list='$(bin_PROGRAMS)'; test -n "$(bindir)" || list=; \
@@ -457,8 +457,8 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/calc.Plo
 include ./$(DEPDIR)/main.Po
-include ./$(DEPDIR)/money.Plo
 
 .c.o:
 	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

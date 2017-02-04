@@ -132,9 +132,9 @@ am__uninstall_files_from_dir = { \
   }
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
-libmoney_la_LIBADD =
-am_libmoney_la_OBJECTS = money.lo
-libmoney_la_OBJECTS = $(am_libmoney_la_OBJECTS)
+libcalc_la_LIBADD =
+am_libcalc_la_OBJECTS = calc.lo
+libcalc_la_OBJECTS = $(am_libcalc_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
@@ -142,7 +142,7 @@ am__v_lt_1 =
 PROGRAMS = $(bin_PROGRAMS)
 am_main_OBJECTS = main.$(OBJEXT)
 main_OBJECTS = $(am_main_OBJECTS)
-main_DEPENDENCIES = libmoney.la
+main_DEPENDENCIES = libcalc.la
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -177,8 +177,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(libmoney_la_SOURCES) $(main_SOURCES)
-DIST_SOURCES = $(libmoney_la_SOURCES) $(main_SOURCES)
+SOURCES = $(libcalc_la_SOURCES) $(main_SOURCES)
+DIST_SOURCES = $(libcalc_la_SOURCES) $(main_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -322,10 +322,10 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-lib_LTLIBRARIES = libmoney.la
-libmoney_la_SOURCES = money.c money.h
+lib_LTLIBRARIES = libcalc.la
+libcalc_la_SOURCES = calc.c calc.h
 main_SOURCES = main.c
-main_LDADD = libmoney.la
+main_LDADD = libcalc.la
 all: all-am
 
 .SUFFIXES:
@@ -395,8 +395,8 @@ clean-libLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
-libmoney.la: $(libmoney_la_OBJECTS) $(libmoney_la_DEPENDENCIES) $(EXTRA_libmoney_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(LINK) -rpath $(libdir) $(libmoney_la_OBJECTS) $(libmoney_la_LIBADD) $(LIBS)
+libcalc.la: $(libcalc_la_OBJECTS) $(libcalc_la_DEPENDENCIES) $(EXTRA_libcalc_la_DEPENDENCIES) 
+	$(AM_V_CCLD)$(LINK) -rpath $(libdir) $(libcalc_la_OBJECTS) $(libcalc_la_LIBADD) $(LIBS)
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
 	@list='$(bin_PROGRAMS)'; test -n "$(bindir)" || list=; \
@@ -457,8 +457,8 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/calc.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/money.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

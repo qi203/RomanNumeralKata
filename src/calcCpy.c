@@ -1,0 +1,339 @@
+#include <stdlib.h>
+#include "calc.h"
+
+struct Variable 
+{
+    char *arg1;
+    char *arg2;
+};
+
+Variable *var_create(char *arg1, char *arg2)
+{
+    Variable *v;
+    if((CheckValidArg(arg1) == 0) || (CheckValidArg(arg2) == 0))
+    {
+        return NULL;
+    }
+    v = (Variable *)malloc(sizeof(Variable));
+    v->arg1 = arg1;
+    v->arg2 = arg2;
+
+    return v;
+}
+
+// This func takes in a var struct and the opcode depending on operation (1-Addition 2-Subtraction)
+// and returns the char array
+char *operation(Variable *v, int opcode)
+{
+    if(opcode == 1)
+    {
+        return result_add(v);
+    }
+    else if(opcode == 2)
+    {
+        return result_subtract(v);
+    }
+}
+
+// This func perform add operation
+char *result_add(Variable *v)
+{
+//    printf("%d\n",result);
+    return NULL;
+}
+
+// This func perform sub operation
+char *result_subtract(Variable *v)
+{
+//    printf("%d\n",result);
+    return NULL;
+}
+
+// This func checks whether the arguments are valid
+int CheckValidArg(char *arg)
+{
+    for(int i = 0;arg[i] != '\0';i++)
+    {
+        if(arg[i] == 'I' || arg[i] == 'V' || arg[i] == 'X' || arg[i] == 'L' || arg[i] == 'C' || arg[i] == 'D' || arg[i] == 'M')
+        {
+//            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int *Enum(char *arg)
+{
+    int *num = new int[7];
+    for (int i = 0;arg[i] != '\0';i++)
+    {
+        if(arg[i] == 'I') num[0]++;
+        else if(arg[i] == 'V') num[1]++;
+        else if(arg[i] == 'X') num[2]++;
+        else if(arg[i] == 'L') num[3]++;
+        else if(arg[i] == 'C') num[4]++;
+        else if(arg[i] == 'D') num[5]++;
+        else if(arg[i] == 'M') num[6]++;
+    }
+    /*for(int i = 0;i<7;i++)
+    {
+        printf("%d\n",num[i]);
+    }*/
+    return num;
+}
+
+// This func extends the subtractive forms to normal representation
+// Only following forms are possible
+// IV->IIII, IX->VIIII, XL->XXXX, XC->LXXXX, CD->CCCC, CM->DCCCC
+char *Extend(char *var)
+{
+    char *ExVar = new char;
+    int len = 0;
+    for(int i = 0;var[i] != '\0';i++)
+    {
+        if(ConvertLetterToInt(var[i]) < ConvertLetterToInt(var[i+1]))
+        {
+            if (var[i] == 'I' && var[i+1] == 'V')
+            {
+                ExVar[len] = 'I'; len++;
+                ExVar[len] = 'I'; len++;
+                ExVar[len] = 'I'; len++;
+                ExVar[len] = 'I'; len++;
+            }
+            else if (var[i] == 'I' && var[i+1] == 'X')
+            {
+                ExVar[len] = 'V'; len++;
+                ExVar[len] = 'I'; len++;
+                ExVar[len] = 'I'; len++;
+                ExVar[len] = 'I'; len++;
+                ExVar[len] = 'I'; len++;
+            }
+            else if (var[i] == 'X' && var[i+1] == 'L')
+            {
+                ExVar[len] = 'X'; len++;
+                ExVar[len] = 'X'; len++;
+                ExVar[len] = 'X'; len++;
+                ExVar[len] = 'X'; len++;
+            }
+            else if (var[i] == 'X' && var[i+1] == 'C')
+            {
+                ExVar[len] = 'L'; len++;
+                ExVar[len] = 'X'; len++;
+                ExVar[len] = 'X'; len++;
+                ExVar[len] = 'X'; len++;
+                ExVar[len] = 'X'; len++;
+            }
+            else if (var[i] == 'C' && var[i+1] == 'D')
+            {
+                ExVar[len] = 'C'; len++;
+                ExVar[len] = 'C'; len++;
+                ExVar[len] = 'C'; len++;
+                ExVar[len] = 'C'; len++;
+            }
+            else if (var[i] == 'C' && var[i+1] == 'M')
+            {
+                ExVar[len] = 'D'; len++;
+                ExVar[len] = 'C'; len++;
+                ExVar[len] = 'C'; len++;
+                ExVar[len] = 'C'; len++;
+                ExVar[len] = 'C'; len++;
+            }
+            i++;
+        }
+        else
+        {
+            ExVar[len] = var[i];
+            len++;
+        }
+    }
+    /*for(int i = 0;i<len;i++)
+    {
+        printf("%c",ExVar[i]);
+    }
+    printf("\n");*/
+    return ExVar;
+}
+
+char *Group(char *var)
+{
+    char *rez = Extend(var);
+    int *numRez = Enum(rez);
+    char *OrderRez = new char;
+    int len = 0;
+    for(int i = 0;i<7;i++)
+    {
+        if(numRez[i] >= 5 && i%2 == 0)
+        {
+            numRez[i] = numRez[i] - 5;
+            numRez[i+1]++;
+        }
+        if(numRez[i] == 2 && i%2 == 1)
+        {
+            numRez[i] = numRez[i] - 5;
+            numRez[i+1]++;
+        }
+    }
+
+    char *x = "IVXLCDM";
+    for(int i = 6;i>=0;i--)
+    {
+        for(int j = 0;j<numRez[i];j++)
+        {
+            OrderRez[len] = x[i];
+            len++;
+        }
+    }
+    int *numOrderRez = Enum(OrderRez);
+    char *FinalRez = new char;
+    
+    len = 0;
+    for(int j = 0;j<numOrderRez[6];j++)
+    {
+        FinalRez[len] = 'M'; len++;
+    }
+    if(numOrderRez[5] == 1)
+    {
+        if(numOrderRez[4] == 4)
+        {
+            FinalRez[len] = 'C'; len++;
+            FinalRez[len] = 'M'; len++;
+        }
+        else
+        {
+            for(int j = 0;j<numOrderRez[5];j++)
+            {
+                FinalRez[len] = 'D'; len++;
+            }
+        }
+    }
+    else
+    {
+        if(numOrderRez[4] == 4)
+        {
+            FinalRez[len] = 'C'; len++;
+            FinalRez[len] = 'D'; len++;
+        }
+        else
+        {
+            for(int j = 0;j<numOrderRez[4];j++)
+            {
+                FinalRez[len] = 'C'; len++;
+            }
+        }
+    }
+    if(numOrderRez[3] == 1)
+    {
+        if(numOrderRez[2] == 4)
+        {
+            FinalRez[len] = 'X'; len++;
+            FinalRez[len] = 'C'; len++;
+        }
+        else
+        {
+            for(int j = 0;j<numOrderRez[3];j++)
+            {
+                FinalRez[len] = 'L'; len++;
+            }
+        }
+    }
+    else
+    {
+        if(numOrderRez[2] == 4)
+        {
+            FinalRez[len] = 'X'; len++;
+            FinalRez[len] = 'L'; len++;
+        }
+        else
+        {
+            for(int j = 0;j<numOrderRez[2];j++)
+            {
+                FinalRez[len] = 'X'; len++;
+            }
+        }
+    }
+    if(numOrderRez[1] == 1)
+    {
+        if(numOrderRez[0] == 4)
+        {
+            FinalRez[len] = 'I'; len++;
+            FinalRez[len] = 'X'; len++;
+        }
+        else
+        {
+            for(int j = 0;j<numOrderRez[1];j++)
+            {
+                FinalRez[len] = 'V'; len++;
+            }
+        }
+    }
+    else
+    {
+        if(numOrderRez[0] == 4)
+        {
+            FinalRez[len] = 'I'; len++;
+            FinalRez[len] = 'V'; len++;
+        }
+        else
+        {
+            for(int j = 0;j<numOrderRez[0];j++)
+            {
+                FinalRez[len] = 'I'; len++;
+            }
+        }
+    }
+
+    for(int i = 0;i<len;i++)
+    {
+        printf("%c,",FinalRez[i]);
+    }
+    printf("\n");
+//    printf("%d\n",ConvertToInt(rez));
+}
+
+// This func converts each roman literal to equivalent decimal val
+int ConvertLetterToInt(char arg)
+{
+    if (arg == 'I'){
+        return 1;
+    }
+    else if(arg == 'V'){
+        return 5;
+    }
+    else if(arg == 'X'){
+        return 10;
+    }
+    else if(arg == 'L'){
+        return 50;
+    }
+    else if(arg == 'C'){
+        return 100;
+    }
+    else if(arg == 'D'){
+        return 500;
+    }
+    else if(arg == 'M'){
+        return 1000;
+    }
+    return 0;
+}
+
+char *calc_arg(Variable *v, int x)
+{
+    if(x == 1)
+    {
+        return v->arg1;
+    }
+    if(x == 2)
+    {
+        return v->arg2;
+    }
+}
+
+void var_free(Variable *v)
+{
+    free(v);
+}

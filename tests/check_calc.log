@@ -1,0 +1,73 @@
+--------------------
+***STARTING TESTS***
+Running suite(s): Calculator
+Sample Input - 1, Arg1 = XIV, Arg2 = LX, Operation = 1, Expected Result = LXXIV
+Test 1 - Passed
+Test 2 - Passed
+100%: Checks: 1, Failures: 0, Errors: 0
+
+
+Running suite(s): Calculator
+Sample Input - 2, Arg1 = II, Arg2 = II, Operation = 1, Expected Result = IV
+Test 1 - Passed
+Test 2 - Passed
+100%: Checks: 2, Failures: 0, Errors: 0
+
+
+Running suite(s): Calculator
+Sample Input - 3, Arg1 = CXXII, Arg2 = LXI, Operation = 1, Expected Result = CLXXXIII
+Test 1 - Passed
+Test 2 - Passed
+100%: Checks: 3, Failures: 0, Errors: 0
+
+
+Running suite(s): Calculator
+Sample Input - 4, Arg1 = LXVIII, Arg2 = XII, Operation = 2, Expected Result = LVI
+Test 1 - Passed
+Test 2 - Passed
+100%: Checks: 4, Failures: 0, Errors: 0
+
+
+Running suite(s): Calculator
+Sample Input - 5, Arg1 = CXXIX, Arg2 = XLIII, Operation = 2, Expected Result = LXXXVI
+Test 1 - Passed
+Test 2 - Passed
+100%: Checks: 5, Failures: 0, Errors: 0
+
+
+Running suite(s): Calculator
+Sample Input - 6, Arg1 = X, Arg2 = I, Operation = 2, Expected Result = IX
+Test 1 - Passed
+Test 2 - Passed
+100%: Checks: 6, Failures: 0, Errors: 0
+
+
+Running suite(s): Calculator
+Sample Input - 7, Arg1 = XLIII, Arg2 = CXXIX, Operation = 2, Expected Result = (null)
+Test 1 - Passed
+Test 2 - Failed - Subtraction Not Possible! - Failed
+100%: Checks: 7, Failures: 0, Errors: 0
+
+
+Running suite(s): Calculator
+Sample Input - 8, Arg1 = CCCLXVIIII, Arg2 = DCCCXXXXV, Operation = 1, Expected Result = MCCXIV
+Test 1 - Passed
+Test 2 - Passed
+100%: Checks: 8, Failures: 0, Errors: 0
+
+
+Running suite(s): Calculator
+Sample Input - 9, Arg1 = D, Arg2 = C, Operation = 1, Expected Result = DC
+Test 1 - Passed
+Test 2 - Passed
+100%: Checks: 9, Failures: 0, Errors: 0
+
+
+Running suite(s): Calculator
+Sample Input - 10, Arg1 = XC, Arg2 = LB, Operation = 2, Expected Result = (null)
+Test 1 - Failed - Either of the Two Arguments is Invalid
+100%: Checks: 10, Failures: 0, Errors: 0
+
+
+***ENDING TESTS***
+PASS check_calc (exit status: 0)

@@ -45,19 +45,19 @@
 #define LT_OBJDIR ".libs/"
 
 /* Name of package */
-#define PACKAGE "money"
+#define PACKAGE "calculator"
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "check-devel AT lists.sourceforge.net"
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "Money"
+#define PACKAGE_NAME "Calculator"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "Money 0.3"
+#define PACKAGE_STRING "Calculator 0.3"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "money"
+#define PACKAGE_TARNAME "calculator"
 
 /* Define to the home page for this package. */
 #define PACKAGE_URL ""

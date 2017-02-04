@@ -1,4 +1,4 @@
-check_money-check_money.o: check_money.c /usr/include/stdc-predef.h \
+check_calc-check_calc.o: check_calc.c /usr/include/stdc-predef.h \
  /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -35,7 +35,7 @@ check_money-check_money.o: check_money.c /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/string3.h \
  /usr/local/include/check_stdint.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
- /usr/include/x86_64-linux-gnu/bits/wchar.h ../src/money.h
+ /usr/include/x86_64-linux-gnu/bits/wchar.h ../src/calc.h
 
 /usr/include/stdc-predef.h:
 
@@ -133,4 +133,4 @@ check_money-check_money.o: check_money.c /usr/include/stdc-predef.h \
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
-../src/money.h:
+../src/calc.h:
